@@ -1,0 +1,43 @@
+https://pokeapi.co/api/v2/pokemon/25
+    "base_experience": 112,
+    "forms": [
+        {
+            "name": "pikachu",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/25/"
+        }
+    ],
+
+https://pokeapi.co/api/v2/pokemon/bulbasaur
+    "base_experience": 64,
+    "forms": [
+        {
+            "name": "bulbasaur",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/1/"
+        }
+    ],
+
+https://pokeapi.co/api/v2/pokemon/321
+    "base_experience": 175,
+    "forms": [
+        {
+            "name": "wailord",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/321/"
+        }
+    ],
+
+https://pokeapi.co/api/v2/pokemon/charmander
+ "base_experience": 62,
+    "forms": [
+        {
+            "name": "charmander",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/4/"
+        }
+    ],
+
+https://pokeapi.co/api/v2/pokemon/563
+    "forms": [
+        {
+            "name": "cofagrigus",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/563/"
+        }
+    ],

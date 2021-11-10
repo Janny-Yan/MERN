@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello React</title>
+    </head>
+    <body>
+        <div id="root">
+            <h1>Hello Dojo!</h1>
+            <h2>Things I need to do:</h2>
+            <li>
+                <tr>Learn React</tr>
+                <tr>Climb Mt. Everest</tr>
+                <tr>Run a marathon</tr>
+                <tr>Feed the dogs</tr>
+            </li>
+        </div>
+        
+        <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
+<script>
+    const App = React.createElement("h1", {}, "Hello Dojo!");
+    ReactDOM.render(App, document.getElementById("root"));
+</script>
+<script>
+    const App = React.createElement("h2", {}, "Things I need to do:!");
+    ReactDOM.render(App, document.getElementById("root"));
+</script>
+
+
+</body>
+</html>
+
