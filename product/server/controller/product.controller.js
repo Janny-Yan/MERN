@@ -1,29 +1,25 @@
 const Product = require("../model/product.model");
 
+const addNewProduct = (req, res) => {
+  Product.create(req.body)
+    .then((newProduct) => res.json(newProduct))
+    .catch((err) => console.log(err));
+};
+
+const getAllProducts = (req, res) => {
+  Product.find()
+    .then((allProducts) => res.json(allProducts))
+    .catch((err) => console.log(err));
+};
+
+const getProductById = (req, res) => {
+  Product.findOne({ _id: req.params._id })
+    .then((queriedProduct) => res.json(queriedProduct))
+    .catch((err) => console.log(err));
+};
+
 module.exports = {
-
-addNewProduct = (req, res) => {
-    Product.create(req.body)
-        .then((newProduct) => {
-            console.log(newProduct);
-            res.json(newProduct)
-    })
-        .catch((err)=>{
-            console.log(err);
-            res.status(400).json(err);
-    })
-},
-
-getAllProduct = (req, res) => {
-    Product.create(req.body)
-        .then((allProduct) => {
-            console.log(allProduct);
-            res.json(allProduct)
-    })
-        .catch((err)=>{
-            console.log(err);
-            res.status(400).json(err);
-    })
-},
-
-}
+  addNewProduct,
+  getAllProducts,
+  getProductById,
+};
