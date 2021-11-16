@@ -1,9 +1,14 @@
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import "../App.css";
 
 const ProductList = (props) => {
-  const {} = props;
+  const {
+    hasBeenSubmittedDummy,
+    setHasBeenSubmittedDummy,
+    handleDeleteProduct,
+  } = props;
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
@@ -13,35 +18,34 @@ const ProductList = (props) => {
         setProducts(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [hasBeenSubmittedDummy]);
 
-const deletefilter = (idFromBelow) =>{
-  axios.delete('http://localhost:800/api/products/${idFromBelow}')
-    .then((res=>{
-      console.log(res.data);
-      const newList = productList.filter((product, index)=> product._id !== idFromBelow);
-      setProductList(newList);
-  })
-  .catch((err)=>{
-    console.log(err);
-  })
-);
-
+  const localHandleDeleteProduct = (id) => {
+    handleDeleteProduct(id);
+    setHasBeenSubmittedDummy(!hasBeenSubmittedDummy);
+  };
+  const handleNavigateToEdit = (id) => {
+    navigate(`/${id}/edit`);
+  };
   return (
-    <div>
+    <>
       <h1>All Products</h1>
       {products.map((product, index) => (
 
         <div className="form-div" key={index}>
           {" "}
           <Link to={`${product._id}`}>{product.title}</Link>
-          <Link to={'/product/edit'}>Edit</Link>
-          <buttin onClick={() => deletefilter(product._id)}>Delete</buttin>
+          <button onClick={() => handleNavigateToEdit(product._id)}>
+            EDIT
+          </button>
+          <button onClick={() => localHandleDeleteProduct(product._id)}>
+            Delete
+          </button>
         </div>
-      ))
-      }
-    </div>
+      ))}
+    </>
   );
 };
 
 export default ProductList;
+
