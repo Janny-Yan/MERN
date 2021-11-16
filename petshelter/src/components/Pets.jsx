@@ -6,11 +6,11 @@ const Pets = (props) => {
     const [pets, setPets] = useState([]);
     
     const fetchPets = () => {
-        axios.get("http://localhost:8000/api/pets/")
+        axios.get("http://localhost:8000/api/pets")
             .then(res => {
                 console.log(res);
-                console.log("data:", res.data.pet);
-                setPets(res.data.pet)
+                console.log("data:", res.data);
+                setPets(res.data)
             })
             .catch(err => console.log(err));
     }
